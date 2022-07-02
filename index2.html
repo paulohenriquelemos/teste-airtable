@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airtable</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <!-- Superpeer -->
+    <link rel="stylesheet" type="text/css" href="https://widgets.superpeer.com/widget.css">
+    <script type="text/javascript" src="https://widgets.superpeer.com/widget.js" async></script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="filtering text-center text-uppercase">
+                    <span data-filter="*" class="active">Todos</span>
+                    <span data-filter=".back-end" class="">Back-end</span>
+                    <span data-filter=".copy" class="">Copy</span>
+                    <span data-filter=".digitalproductdesigner" class="">Digital Product Designer</span>
+                    <span data-filter=".front-end" class="">Front-end</span>
+                    <span data-filter=".ux-ui" class="">UX/UI</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-3">
+                <h3 class="mt-5">Filtros</h3>
+                <hr>
+                </hr>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="InputSearch"
+                            placeholder="Filtrar por texto"></input>
+                    </div>
+
+                    <hr>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" name="hashtag" id="Back-end"></input>
+                        <label class="form-check-label" for="Back-end">
+                            Back-end
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" name="hashtag" id="Copy"></input>
+                        <label class="form-check-label" for="Copy">
+                            Copy
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" name="hashtag"
+                            id="DigitalProductDesigner"></input>
+                        <label class="form-check-label" for="DigitalProductDesigner">
+                            Digital Product Designer
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" name="hashtag" id="Front-end"></input>
+                        <label class="form-check-label" for="Front-end">
+                            Front-end
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" name="hashtag" id="UX/UI"></input>
+                        <label class="form-check-label" for="UX/UI">
+                            UX/UI
+                        </label>
+                    </div>
+
+                    <hr>
+
+                    <label for="price">Preço</label>
+                    <select class="custom-select mr-sm-2" id="price">
+                        <option selected>Selecionar...</option>
+                        <option value="1">Até R$80,00</option>
+                        <option value="2">R$81,00 - R$100,00</option>
+                        <option value="3">Acima de R$100,00</option>
+                    </select>
+
+                    <hr>
+
+                    <label for="localization">Localização</label>
+                    <select class="custom-select mr-sm-2" id="localization">
+                        <option selected>Selecionar...</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="Switzerland">Switzerland</option>
+                    </select>
+
+                    <!--
+                    <button type="submit" class="btn btn-block btn-primary mt-3">Buscar</button>
+                    -->
+                </form>
+            </div>
+            <div class="col-12 col-lg-9">
+                <div class="form-row gallery mt-5">
+                    <div class="col-12 col-lg-6 mb-2 back-end digitalproductdesigner front-end ux-ui">
+                        <div class="card">
+                            <img class="card-img-top" src="img/avatar1.png" alt="Manuela Silva" />
+                            <div class="card-body">
+                                <h4 class="card-title">Manuela Silva</h4>
+                                <h6>UX/UI & Digital Product Designer</h6>
+
+                                <span class="badge badge-secondary">Back-end</span>
+                                <span class="badge badge-secondary">Digital Product Designer</span>
+                                <span class="badge badge-secondary">Front-end</span>
+                                <span class="badge badge-secondary">UX/UI</span>
+
+                                <hr>
+
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
+                                    condimentum purus ipsum, at vestibulum mi cursus sed. Donec eget efficitur felis, et
+                                    suscipit metus.</p>
+
+                                <h5>R$99.90</h5>
+                                <p class="card-text">
+                                    <small class="text-muted">Switzerland - 26/06/2022</small>
+                                </p>
+
+                                <h6>Equipe</h6>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><img src="img/photo1.png" width="60" class="img-fluid">
+                                    </li>
+                                    <li class="list-inline-item"><img src="img/photo2.png" width="60" class="img-fluid">
+                                    </li>
+                                    <li class="list-inline-item"><img src="img/photo3.png" width="60" class="img-fluid">
+                                    </li>
+                                </ul>
+
+                                <a class="btn btn-block btn-success manuelasilva">Agende um horário</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 mb-2 copy ux-ui">
+                        <div class="card">
+                            <img class="card-img-top" src="img/avatar2.png" alt="Ricardo Souza" />
+                            <div class="card-body">
+                                <h4 class="card-title">Ricardo Souza</h4>
+                                <h6>UX/UI</h6>
+
+                                <span class="badge badge-secondary">Copy</span>
+                                <span class="badge badge-secondary">UX/UI</span>
+
+                                <hr>
+
+                                <p class="card-text">Proin at metus et elit rhoncus varius. Aenean eu tortor auctor,
+                                    facilisis ex sit amet, sagittis dolor. Pellentesque hendrerit, velit sed hendrerit
+                                    eleifend, massa sem congue turpis, in imperdiet velit justo id dolor. Fusce a
+                                    pharetra risus.</p>
+
+                                <h5>R$80.00</h5>
+                                <p class="card-text">
+                                    <small class="text-muted">Brasil - 29/06/2022</small>
+                                </p>
+
+                                <h6>Equipe</h6>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><img src="img/photo4.png" width="60" class="img-fluid">
+                                    </li>
+                                    <li class="list-inline-item"><img src="img/photo5.png" width="60" class="img-fluid">
+                                    </li>
+                                    <li class="list-inline-item"><img src="img/photo6.png" width="60" class="img-fluid">
+                                    </li>
+                                </ul>
+
+                                <a class="btn btn-block btn-success ricardosouza">Agende um horário</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+        integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
+        crossorigin="anonymous"></script>
+
+
+    <!-- Superpeer -->
+    <script>window.addEventListener("load", () => {
+            new Superpeer.Widget({
+                embed: { type: "popup" }, launcher: {
+                    type: "custom",
+                    options: { selector: ".manuelasilva" }
+                }, config: { username: "manuelasilva", serviceSlug: "" }
+            }),
+                new Superpeer.Widget({
+                    embed: { type: "popup" }, launcher: {
+                        type: "custom",
+                        options: { selector: ".ricardosouza" }
+                    }, config: { username: "ricardosouza", serviceSlug: "" }
+                })
+        })</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"
+        integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew=="
+        crossorigin="anonymous"></script>
+
+    <script>
+        (function () {
+            (".filtering").on("click", "span", function () {
+                var a = $(".gallery").isotope({});
+                conso.e.log(a)
+                var e = $(this).attr("data-filter");
+                a.isotope({ filter: e });
+            });
+            (".filtering").on("click", "span", function () {
+                $(this).addClass("active").siblings().removeClass("active");
+            });
+        })
+    </script>
+
+</body>
+
+</html>
