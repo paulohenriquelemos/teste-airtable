@@ -1,13 +1,12 @@
-import { useState } from "react";
-
 interface HeaderProps {
   setFilterUser: (data: string) => void;
   setDisplayA: (data: string) => void;
+  setIsActiveHeader: (data: string) => void;
+  handleResetFilters: () => void;
+  isActiveHeader: string;
 }
 
-export function Header({ setFilterUser, setDisplayA }: HeaderProps) {
-  const [isActive, setIsActive] = useState('1')
-
+export function Header({ setFilterUser, setDisplayA, setIsActiveHeader, handleResetFilters, isActiveHeader }: HeaderProps) {
   const gerericSpanStyle = "border text-xs border-verde-300 px-3.5 py-1 rounded-full cursor-pointer transition duration-500"
 
   const spanList = [
@@ -45,7 +44,8 @@ export function Header({ setFilterUser, setDisplayA }: HeaderProps) {
   function handleFilterAll(id: string, type: string) {
     setDisplayA('hidden')
     setFilterUser(type)
-    setIsActive(id)
+    setIsActiveHeader(id)
+    handleResetFilters()
   }
 
   return (
@@ -55,7 +55,7 @@ export function Header({ setFilterUser, setDisplayA }: HeaderProps) {
           return (
             <span
               key={dataFilter.id}
-              className={`${gerericSpanStyle} ${isActive === dataFilter.id
+              className={`${gerericSpanStyle} ${isActiveHeader === dataFilter.id
                 ? 'text-white bg-verde-300'
                 : 'text-verde-300 bg-white hover:text-white hover:bg-verde-300'}`}
               onClick={() => handleFilterAll(dataFilter.id, dataFilter.text)}

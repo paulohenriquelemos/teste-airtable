@@ -16,6 +16,7 @@ interface CardProps {
 
 export function Card({ image, name, headline, hashtag, description, price, localization, date, equipePhotos, displayA }: CardProps) {
   const gerericSpanStyles = "bg-cinza-300 text-white text-xs font-bold py-1 px-1.5 rounded"
+
   return(
     <div className={`border border-cinza-200 rounded-md overflow-hidden animate-card ${displayA}`}>
       <img className="w-full" src={image} alt="Avatar1" />
