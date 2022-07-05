@@ -17,6 +17,26 @@ export function Home() {
   const [filterUser, setFilterUser] = useState('Todos')
   const [isActiveHeader, setIsActiveHeader] = useState('1')
 
+  const [allHashtags, setAllHashtags] = useState<string[]>([])
+  const [allLocalizations, setAllLocalizations] = useState<string[]>([])
+
+  useEffect(() => {
+    let allHash: string[] = []
+    let allLocals: string[] = []
+    records.forEach((filter) => {
+      if(!allLocals.includes(filter.fields.localization)) {
+        allLocals.push(filter.fields.localization)
+      }
+      filter.fields.hashtag.forEach((h) => {
+        if(!allHash.includes(h)) {
+          allHash.push(h)
+        }
+      })
+        setAllHashtags(allHash.sort())
+        setAllLocalizations(allLocals.sort())
+    })
+  },[])
+
   useEffect(() => {
     setTimeout(() => setDisplayA('block'), 10)
   },[displayA])
@@ -131,6 +151,8 @@ export function Home() {
       />
       <main className="container mx-auto my-12 flex flex-col lg:flex-row gap-7 px-6">
         <Filtros
+          allHashtags={allHashtags}
+          allLocalizations={allLocalizations}
           setFilterText={setFilterText}
           filterText={filterText}
           filterCheckbox={filterCheckbox}

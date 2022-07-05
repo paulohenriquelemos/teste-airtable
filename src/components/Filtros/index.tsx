@@ -1,6 +1,8 @@
 import { ChangeEvent, FormEvent } from "react";
 
 interface FilterProps {
+  allHashtags: string[];
+  allLocalizations: string[];
   filterText: string;
   setFilterText: (data: string) => void;
   filterCheckbox: string[];
@@ -15,6 +17,8 @@ interface FilterProps {
 }
 
 export function Filtros({
+    allHashtags,
+    allLocalizations,
     filterText,
     setFilterText,
     filterCheckbox,
@@ -70,56 +74,25 @@ export function Filtros({
           onChange={(e) => setFilterText(e.target.value)}
         />
         <div className="pt-3 border-t border-gray-200">
-          <div className="mt-1 flex items-center gap-2">
-            <input
-              type="checkbox" id="back-end" name="Back-end"
-              onChange={handleCheckBox}
-              checked={filterCheckbox.includes('Back-end')}
-            />
-            <label className="text-cinza-900" htmlFor="back-end">
-              Back-end
-            </label>
-          </div>
-          <div className="mt-1 flex items-center gap-2">
-            <input
-              type="checkbox" id="copy" name="Copy"
-              onChange={handleCheckBox}
-              checked={filterCheckbox.includes('Copy')}
-            />
-            <label className="text-cinza-900" htmlFor="copy">
-              Copy
-            </label>
-          </div>
-          <div className="mt-1 flex items-center gap-2">
-            <input
-              type="checkbox" id="digital-product-designer" name="Digital Product Designer"
-              onChange={handleCheckBox}
-              checked={filterCheckbox.includes('Digital Product Designer')}
-            />
-            <label className="text-cinza-900" htmlFor="digital-product-designer">
-              Digital Product Designer
-            </label>
-          </div>
-          <div className="mt-1 flex items-center gap-2">
-            <input
-              type="checkbox" id="front-end" name="Front-end"
-              onChange={handleCheckBox}
-              checked={filterCheckbox.includes('Front-end')}
-            />
-            <label className="text-cinza-900" htmlFor="front-end">
-              Front-end
-            </label>
-          </div>
-          <div className="mt-1 flex items-center gap-2">
-            <input
-              type="checkbox" id="ux-ui" name="UX/UI"
-              onChange={handleCheckBox}
-              checked={filterCheckbox.includes('UX/UI')}
-            />
-            <label className="text-cinza-900" htmlFor="ux-ui">
-              UX/UI
-            </label>
-          </div>
+        {allHashtags.map((hash) => {
+          return(
+            <div key={hash} className="mt-1 flex items-center gap-2">
+              <input
+                type="checkbox"
+                id={hash.toLowerCase().replace(/[' '/]/g, "-")}
+                name={hash}
+                onChange={handleCheckBox}
+                checked={filterCheckbox.includes(hash)}
+              />
+              <label
+                className="text-cinza-900"
+                htmlFor={hash.toLowerCase().replace(/[' '/]/g, "-")}
+              >
+                {hash}
+              </label>
+            </div>
+            )
+        })}
         </div>
         <label
           className="mt-4 pt-4 border-t text-cinza-900 border-gray-200 block"
@@ -155,8 +128,11 @@ export function Filtros({
           onChange={handleChangeLocalization}
         >
           <option value="0">Selecionar...</option>
-          <option value="Brasil">Brasil</option>
-          <option value="Switzerland">Switzerland</option>
+          {allLocalizations.map((local) => {
+            return(
+              <option key={local} value={local}>{local}</option>
+            )
+          })}
         </select>
         {/* <button
           className="w-full mt-4 py-1.5 text-white bg-azul-500 rounded-md
